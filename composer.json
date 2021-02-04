@@ -1,0 +1,10 @@
+{
+    "autoload": {
+        "psr-4": {
+            "andyp\\labs\\cpt\\demonstration\\": "src/"
+        }
+    },
+    "require": {
+        "erusev/parsedown": "^1.7"
+    }
+}
