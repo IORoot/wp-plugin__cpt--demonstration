@@ -105,6 +105,7 @@ class post_type
 				'public'                => true,
 				'show_ui'               => true,
 				'show_in_menu'          => true,
+				'show_in_rest' 			=> true,
 				'menu_position'         => 5,
 				'menu_icon'             => $this->svgdata_icon,
 				'show_in_admin_bar'     => true,
