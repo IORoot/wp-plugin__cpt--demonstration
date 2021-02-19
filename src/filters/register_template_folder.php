@@ -22,7 +22,8 @@ class register_template_folder
 
     public function taxonomy_template($template) {
 
-        global $post_type;
+        global $post;
+        $post_type = $post->post_type;
 
         if ($post_type != $this->post_type){ return $template; }
 
