@@ -15,7 +15,7 @@ class p_1 {
     public function callback($text)
     {
         $needle   = '<p class="text-2xl lg:w-4/5 mb-4 leading-relaxed';
-        $replace  = '<p class="text-5xl my-24 leading-relaxed';
+        $replace  = '<p class="text-2xl md:text-5xl my-24 leading-relaxed';
 
         $pos = strpos($text, $needle);
         if ($pos !== false) {
