@@ -16,7 +16,7 @@ $isotope_library = ANDYP_PAGEBUILDER_ISOTOPE_URL.'src/js/isotope.min.js';
 // -------------------------- TEMPLATE START ------------------------------
 ?>
 
-    <main class="bg-black block px-10 pb-10 text-white">
+    <main class="bg-black block px-4 md:px-10 pb-10 text-white">
 
         <?php 
         //If the taxonomy has something placed into the block editor, use that instead of the default header.

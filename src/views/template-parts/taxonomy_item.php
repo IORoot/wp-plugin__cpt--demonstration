@@ -9,7 +9,7 @@
 
 ?>
 
-<li class="grid-item pr-2 pb-2 md:pr-4 md:pb-4 lg:pr-10 lg:pb-10 inline-block w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5" >
+<li class="grid-item pr-2 pb-2 md:pr-4 md:pb-4 lg:pr-10 lg:pb-10 inline-block w-full md:w-1/3 lg:w-1/4 xl:w-1/5" >
                 
     <a class="flex flex-col bg-black border border-fog hover:border-smoke rounded-md overflow-hidden" href="<?php echo get_permalink($post);?>">
         
