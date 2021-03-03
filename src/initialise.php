@@ -20,6 +20,7 @@ class initialise
         $this->isotope_filters();
         $this->enqueue_css();
         $this->register_transform_filters();
+        $this->register_REST_metadata();
     }
 
 
@@ -84,4 +85,8 @@ class initialise
         new filters\transforms\tag_hide;
     }
 
+    public function register_REST_metadata()
+    {
+        new REST\metadata;
+    }
 }
