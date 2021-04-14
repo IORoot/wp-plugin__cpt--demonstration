@@ -22,6 +22,20 @@ class metadata
                 },
             ) );
 
+            register_rest_field( 'tutorial', 'imageWidth', array(
+                'get_callback' => function( $post_arr ) {
+                    $img = wp_get_attachment_image_src(get_post_thumbnail_id($post_arr['id']), 'thumbnail');
+                    return $img[1];
+                },
+            ) );
+
+            register_rest_field( 'tutorial', 'imageHeight', array(
+                'get_callback' => function( $post_arr ) {
+                    $img = wp_get_attachment_image_src(get_post_thumbnail_id($post_arr['id']), 'thumbnail');
+                    return $img[2];
+                },
+            ) );
+
         } );
 
 
