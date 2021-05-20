@@ -99,7 +99,7 @@ class post_type
 					'items_list_navigation' => $this->plural . ' list navigation',
 					'filter_items_list'     => 'Filter '.$this->plural.' list',
 				],
-				'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes', 'post-formats' ),
+				'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes', 'post-formats', 'excerpt' ),
 				'taxonomies'            => $this->taxonomies,
 				'hierarchical'          => true,
 				'public'                => true,
