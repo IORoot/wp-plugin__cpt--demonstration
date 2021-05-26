@@ -22,7 +22,7 @@
 
 
 
-<h1 class="text-3xl lg:text-8xl mt-24 mx-10 mb-12 text-white w-3/5 capitalize"><?php the_title(); ?></h1>
+<h1 class="text-3xl lg:text-8xl mt-24 mx-10 mb-12 w-3/5 capitalize"><?php the_title(); ?></h1>
 
 
 
@@ -30,12 +30,12 @@
 
     <div class="lg:w-3/5 flex-1 flex mb-6">
         <div class="w-1/2">
-            <div class="font-semibold text-white">Published</div>
+            <div class="font-semibold">Published</div>
             <div class="font-thin"><?php echo $published; ?></div>
         </div>
 
         <div class="w-1/2">
-            <div class="font-semibold text-white">Category</div>
+            <div class="font-semibold">Category</div>
             <div class="font-thin capitalize underline">
             <?php 
                 echo '<a class="hover:text-goo" href="'.get_term_link($cat[0]).'" title="'.$cat[0]->name.'">';
@@ -48,7 +48,7 @@
 
     <div class="lg:w-3/5 flex-1 flex mb-6">
         <div class="w-1/2">
-            <div class="font-semibold text-white">Tags</div>
+            <div class="font-semibold">Tags</div>
             <div class="font-thin capitalize underline"><?php 
                 foreach ( $tags as $tag ){
                     echo '<a class="mr-2 hover:text-goo" href="'.get_term_link($tag).'" title="'.$tag->name.'">';
@@ -59,7 +59,7 @@
         </div>
 
         <div class="w-1/2">
-            <div class="font-semibold text-white">Episode</div>
+            <div class="font-semibold">Episode</div>
             <div class="font-thin"><?php 
                 echo $episode;
             ?></div>
