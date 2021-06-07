@@ -15,7 +15,6 @@ class initialise
         $this->add_admin_view();
         $this->register_template_folder();
         $this->register_sidebar();
-        $this->isotope_filters();
         $this->enqueue_css();
         $this->register_transform_filters();
         $this->register_REST_metadata();
@@ -68,11 +67,6 @@ class initialise
     public function register_sidebar()
     {
         new register\sidebar(ucfirst($this->config['post_type']));
-    }
-
-    public function isotope_filters()
-    {
-        new filters\isotope_filters;
     }
 
     public function enqueue_css()
