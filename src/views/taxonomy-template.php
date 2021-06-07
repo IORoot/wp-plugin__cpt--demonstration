@@ -78,6 +78,10 @@ foreach ($current_term->acf['meta_fields'] as $meta_field)
 
 <div class="svgs">
     <?php
+    include( ANDYP_CPT_DEMONSTRATION_PATH . '/src/svgs/slowmo.svg');
+    include( ANDYP_CPT_DEMONSTRATION_PATH . '/src/svgs/viewback.svg');
+    include( ANDYP_CPT_DEMONSTRATION_PATH . '/src/svgs/viewfront.svg');
+    include( ANDYP_CPT_DEMONSTRATION_PATH . '/src/svgs/viewside.svg');
     include( get_stylesheet_directory() . '/src/assets/svgs/glyph-all.svg');
     include( get_stylesheet_directory() . '/src/assets/svgs/wavey-min.php');
     include( get_stylesheet_directory() . '/src/assets/svgs/noise.svg');
