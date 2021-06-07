@@ -4,11 +4,7 @@
     $current_term_acf_image = $current_term->acf['featured_image']['url'];
 
     // The current category ACF SVG Name
-    foreach ($current_term->acf['meta_fields'] as $meta_field)
-    {
-        if ($meta_field['meta_field_name'] != 'SVG Glyph'){ continue; }
-        $current_term_acf_svg_name = $meta_field['meta_field_value'];
-    }
+    $current_term_acf_svg_name = $current_term->acf['meta_fields']['SVG Glyph'];
 
     // Is this category a top-level category.
     $is_parent = false;
@@ -52,19 +48,6 @@
         // └─────────────────────────────────────────────────────────────────────────┘
         ?>
         <div class="flex font-light">
-            <?php 
-            
-                /**
-                 * Display the number of sub-categories (series)
-                 * if this is a top-level parent.
-                 */
-                if ($is_parent) {
-                    $children = get_term_children($current_term->term_id, $current_term->taxonomy);
-                    echo '<p class="pr-4">' . count($children) . ' series. </p>';
-                }
-            ?>
-
-
             <p class=""><?php echo count($posts); ?> videos. </p>
         </div>   
 
@@ -84,7 +67,7 @@
         // │                                                                         │
         // └─────────────────────────────────────────────────────────────────────────┘
         ?>
-        <p class="font-light w-3/4 mt-4"><?php echo $current_term->acf['meta_fields']['Excerpt']; ?></p>
+        <p class="font-light w-3/4 mt-4"><?php echo $current_term->description; ?></p>
     </div>
 
     <?php
@@ -112,7 +95,7 @@
     // │                                                                         │
     // └─────────────────────────────────────────────────────────────────────────┘
     ?>
-    <svg class="z-10 absolute fill-green-600 -top-1/2 -left-1/2 " style="width:200%; height:200%;">
+    <svg class="z-10 absolute fill-blue-600 -top-1/2 -left-1/2 " style="width:200%; height:200%;">
 		<use xlink:href="#<?php echo $current_term->acf['meta_fields']['SVG Glyph']; ?>"></use>
 	</svg>
 

@@ -35,16 +35,16 @@ foreach ($current_term->acf['meta_fields'] as $meta_field)
         // │                                                                         │
         // └─────────────────────────────────────────────────────────────────────────┘
         ?>
-        <?php do_shortcode('[breadcrumb colour="green-500"]'); ?>
+        <?php do_shortcode('[breadcrumb colour="blue-500"]'); ?>
 
         <?php
         // ┌─────────────────────────────────────────────────────────────────────────┐
         // │                                                                         │
-        // │                        ANY SUB-CATEGORIES (SERIES)                      │
+        // │                                ANY VIDEOS                               │
         // │                                                                         │
         // └─────────────────────────────────────────────────────────────────────────┘
         ?>
-        <?php include( __DIR__ . '/taxonomy-parts/category_subcategory_boxes.php'); ?>
+        <?php include( __DIR__ . '/taxonomy-parts/video_cards.php'); ?>
 
         <?php
         // ┌─────────────────────────────────────────────────────────────────────────┐
@@ -78,8 +78,9 @@ foreach ($current_term->acf['meta_fields'] as $meta_field)
 
 <div class="svgs">
     <?php
-    include( get_stylesheet_directory() . '/src/assets/svgs/noise.svg');
     include( get_stylesheet_directory() . '/src/assets/svgs/glyph-all.svg');
+    include( get_stylesheet_directory() . '/src/assets/svgs/wavey-min.php');
+    include( get_stylesheet_directory() . '/src/assets/svgs/noise.svg');
     ?>
 </div>
 

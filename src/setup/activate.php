@@ -7,7 +7,7 @@ class activate
 
     public function __construct()
     {
-        register_activation_hook( ANDYP_CPT_DEMONSTRATION_PLUGIN_FILE, [$this, 'flush_post_types'] );
+        register_activation_hook( ANDYP_CPT_DEMONSTRATION_FILE, [$this, 'flush_post_types'] );
     }
 
     public function flush_post_types() {
