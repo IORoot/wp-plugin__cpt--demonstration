@@ -1,6 +1,6 @@
 <?php
 
-namespace andyp\labs\cpt\demonstration\filters;
+namespace andyp\cpt\demonstration\filters;
 
 class enqueue_css_in_footer
 {
@@ -20,7 +20,7 @@ class enqueue_css_in_footer
 
         if (is_singular($this->page_type))
         {
-            wp_enqueue_style( $this->page_type.'-style', ANDYP_LABS_CPT_DEMONSTRATION_URL . 'src/css/style.css' );
+            wp_enqueue_style( $this->page_type.'-style', ANDYP_CPT_DEMONSTRATION_URL . 'src/css/style.css' );
         }
         
     }

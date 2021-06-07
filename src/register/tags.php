@@ -1,6 +1,6 @@
 <?php
 
-namespace andyp\labs\cpt\demonstration\register;
+namespace andyp\cpt\demonstration\register;
 
 class tags
 {

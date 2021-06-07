@@ -1,61 +1,88 @@
 <?php 
 
 get_header();
+$current_term = get_queried_object();
+$current_term->acf = get_fields( $current_term );
 
-$term = get_queried_object();
-
-$page_classes = get_field('page_classes', $term);
-
-$pb = new andyp\pagebuilder\filters\the_content;
-$content = $pb->filter_the_content_in_the_main_loop(null, $term);
-
-$background_url = do_shortcode('[random_image_url ids="' . rand(2498,2457) . '"]'); 
-
-$isotope_library = ANDYP_PAGEBUILDER_ISOTOPE_URL.'src/js/isotope.min.js';
+/**
+ * Convert all ACF meta fields to key => value pairs for the taxonomy.
+ */
+foreach ($current_term->acf['meta_fields'] as $meta_field)
+{
+    $name  = $meta_field['meta_field_name'];
+    $value = $meta_field['meta_field_value'];
+    $current_term->acf['meta_fields'][$name] = $value;
+}
 
 // -------------------------- TEMPLATE START ------------------------------
 ?>
 
-    <main class="block px-4 md:px-10 pb-10">
+    <main class="max-w-screen-xl m-auto block px-4 pb-40 relative">
 
-        <?php 
-        //If the taxonomy has something placed into the block editor, use that instead of the default header.
-        if (!empty($content)){
-            echo $content;
-        } else {
-            include( __DIR__ . '/template-parts/taxonomy_hero.php');
-        }
+        <?php
+        // ┌─────────────────────────────────────────────────────────────────────────┐
+        // │                                                                         │
+        // │                                TOP HERO                                 │
+        // │                                                                         │
+        // └─────────────────────────────────────────────────────────────────────────┘
         ?>
+        <?php include( __DIR__ . '/taxonomy-parts/category_hero.php'); ?>
 
-        <ul class="grid-ul">
+        <?php
+        // ┌─────────────────────────────────────────────────────────────────────────┐
+        // │                                                                         │
+        // │                                BREADCRUMBS                              │
+        // │                                                                         │
+        // └─────────────────────────────────────────────────────────────────────────┘
+        ?>
+        <?php do_shortcode('[breadcrumb colour="green-500"]'); ?>
 
-            <?php while (have_posts()) {
-                the_post();
+        <?php
+        // ┌─────────────────────────────────────────────────────────────────────────┐
+        // │                                                                         │
+        // │                        ANY SUB-CATEGORIES (SERIES)                      │
+        // │                                                                         │
+        // └─────────────────────────────────────────────────────────────────────────┘
+        ?>
+        <?php include( __DIR__ . '/taxonomy-parts/category_subcategory_boxes.php'); ?>
 
-                include( __DIR__ . '/template-parts/taxonomy_item.php');
-            ?>
+        <?php
+        // ┌─────────────────────────────────────────────────────────────────────────┐
+        // │                                                                         │
+        // │                        THE CATEGORY DESCRIPTION                         │
+        // │                                                                         │
+        // └─────────────────────────────────────────────────────────────────────────┘
+        ?>
+        <?php include( __DIR__ . '/taxonomy-parts/category_description.php'); ?>
 
-            <?php } ?>
 
-        </ul>
+        <?php
+        // ┌─────────────────────────────────────────────────────────────────────────┐
+        // │                                                                         │
+        // │ 						TUTORIALS, DEMOS AND BLOG                        │
+        // │                                                                         │
+        // └─────────────────────────────────────────────────────────────────────────┘
+        ?>
+        <h2 class="text-2xl mb-4 mt-40">Explore other series</h2>
+        <div class="w-full flex gap-10 ">
+            <?php include( __DIR__ . '/generic-parts/tutorials_demos_blog.php'); ?>
+
+        </div>
 
     </main>
 
 <?php
 
 // -------------------------- TEMPLATE END --------------------------------
+?>
+
+<div class="svgs">
+    <?php
+    include( get_stylesheet_directory() . '/src/assets/svgs/noise.svg');
+    include( get_stylesheet_directory() . '/src/assets/svgs/glyph-all.svg');
+    ?>
+</div>
+
+<?php
 
 get_footer();
-
-/**
- * Add Isotope at bottom.
- */
-?>
-<script src="<?php echo $isotope_library; ?>"></script>
-<script>
-var elem = document.querySelector('.grid-ul');
-var iso = new Isotope( elem, {
-    itemSelector: '.grid-item',
-    layoutMode: 'fitRows'
-});
-</script>

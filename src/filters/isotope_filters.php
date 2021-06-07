@@ -1,6 +1,6 @@
 <?php
 
-namespace andyp\labs\cpt\demonstration\filters;
+namespace andyp\cpt\demonstration\filters;
 
 class isotope_filters
 {

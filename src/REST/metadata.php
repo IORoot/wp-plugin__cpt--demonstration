@@ -1,6 +1,6 @@
 <?php
 
-namespace andyp\labs\cpt\demonstration\REST;
+namespace andyp\cpt\demonstration\REST;
 
 /**
  * Return Metadata on post request to 

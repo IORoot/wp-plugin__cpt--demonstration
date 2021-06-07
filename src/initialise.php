@@ -1,13 +1,11 @@
 <?php
 
-namespace andyp\labs\cpt\demonstration;
+namespace andyp\cpt\demonstration;
 
 class initialise
 {
 
-    public $singular = 'demonstration'; //lowercase
-    public $svgdata_icon = 'data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE2LjUsNS41QTIsMiAwIDAsMCAxOC41LDMuNUEyLDIgMCAwLDAgMTYuNSwxLjVBMiwyIDAgMCwwIDE0LjUsMy41QTIsMiAwIDAsMCAxNi41LDUuNU0xMi45LDE5LjRMMTMuOSwxNUwxNiwxN1YyM0gxOFYxNS41TDE1LjksMTMuNUwxNi41LDEwLjVDMTcuODksMTIuMDkgMTkuODksMTMgMjIsMTNWMTFDMjAuMjQsMTEuMDMgMTguNiwxMC4xMSAxNy43LDguNkwxNi43LDdDMTYuMzQsNi40IDE1LjcsNiAxNSw2QzE0LjcsNiAxNC41LDYuMSAxNC4yLDYuMUw5LDguM1YxM0gxMVY5LjZMMTIuOCw4LjlMMTEuMiwxN0w2LjMsMTZMNS45LDE4TDEyLjksMTkuNE00LDlBMSwxIDAgMCwxIDMsOEExLDEgMCAwLDEgNCw3SDdWOUg0TTUsNUExLDEgMCAwLDEgNCw0QTEsMSAwIDAsMSA1LDNIMTBWNUg1TTMsMTNBMSwxIDAgMCwxIDIsMTJBMSwxIDAgMCwxIDMsMTFIN1YxM0gzWiIvPjwvc3ZnPg==';
-
+    private $config;
 
     public function run()
     {
@@ -23,12 +21,18 @@ class initialise
         $this->register_REST_metadata();
     }
 
+    public function set_config($config)
+    {
+        $this->config = $config;
+    }
 
     public function setup_cpt()
     {
         $this->cpt = new cpt\create_cpt;
-        $this->cpt->set_singular(ucfirst($this->singular));
-        $this->cpt->set_icon($this->svgdata_icon);
+        $this->cpt->set_singular(ucfirst($this->config['post_type']));
+        $this->cpt->set_icon($this->config['svgdata_icon']);
+        $this->cpt->set_category($this->config['category']);
+        $this->cpt->set_tags($this->config['tags']);
     }
 
     
@@ -53,17 +57,17 @@ class initialise
 
     public function add_admin_view()
     {
-        new filters\admin_archive_view_by_playlist_order($this->singular . '_category', $this->singular);
+        new filters\admin_archive_view_by_playlist_order($this->config['post_type'] . '_category', $this->config['post_type']);
     }
 
     public function register_template_folder()
     {
-        new filters\register_template_folder($this->singular);
+        new filters\register_template_folder($this->config['post_type']);
     }
 
     public function register_sidebar()
     {
-        new register\sidebar(ucfirst($this->singular));
+        new register\sidebar(ucfirst($this->config['post_type']));
     }
 
     public function isotope_filters()
@@ -73,15 +77,13 @@ class initialise
 
     public function enqueue_css()
     {
-        new filters\enqueue_css_in_footer($this->singular);
+        new filters\enqueue_css_in_footer($this->config['post_type']);
     }
 
     public function register_transform_filters()
     {
         new filters\transforms\parsedown;
         new filters\transforms\tailwind;
-        new filters\transforms\p_1;
-        new filters\transforms\h2_remove;
         new filters\transforms\tag_hide;
     }
 

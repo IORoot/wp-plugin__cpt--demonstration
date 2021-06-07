@@ -1,11 +1,11 @@
 <?php
 
-namespace andyp\labs\cpt\demonstration\register;
+namespace andyp\cpt\demonstration\register;
 
 class post_type
 {
 
-	public $svgdata_icon = 'dashicons-welcome-widgets-menus';
+	public $svgdata_icon = 'data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEzLDEzSDExVjdIMTNNMTMsMTdIMTFWMTVIMTNNMTIsMkExMCwxMCAwIDAsMCAyLDEyQTEwLDEwIDAgMCwwIDEyLDIyQTEwLDEwIDAgMCwwIDIyLDEyQTEwLDEwIDAgMCwwIDEyLDJaIi8+PC9zdmc+';
 
 	public $singular = '';
 
@@ -73,7 +73,7 @@ class post_type
 				'labels'                => 	[
 					'name'                  => $this->plural,
 					'singular_name'         => $this->singular,
-					'menu_name'             => $this->plural,
+					'menu_name'             => $this->singular,
 					'name_admin_bar'        => $this->plural,
 					'archives'              => $this->singular . ' Archives',
 					'attributes'            => $this->singular . ' Attributes',
@@ -114,7 +114,7 @@ class post_type
 				'exclude_from_search'   => false,
 				'publicly_queryable'    => true,
 				'capability_type'       => 'page',
-				'has_archive'           => true,
+				'has_archive'           => false,
 				'rewrite'               => true,
 			] 
 		);

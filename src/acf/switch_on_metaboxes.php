@@ -1,7 +1,7 @@
 <?php
 
 
-namespace andyp\labs\cpt\demonstration\acf;
+namespace andyp\cpt\demonstration\acf;
 
 class switch_on_metaboxes
 {

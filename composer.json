@@ -1,7 +1,7 @@
 {
     "autoload": {
         "psr-4": {
-            "andyp\\labs\\cpt\\demonstration\\": "src/"
+            "andyp\\cpt\\demonstration\\": "src/"
         }
     },
     "require": {
