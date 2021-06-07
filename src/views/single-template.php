@@ -1,6 +1,11 @@
 <?php 
 
 
+include( __DIR__ . '/single-parts/set_post_terms.php');
+$post->terms = set_post_terms_hierarchical($post);
+$post->image = get_the_post_thumbnail_url($post->ID);
+$post->meta  = get_post_meta($post->ID);
+
 get_header();
 
 while ( have_posts() ) :
@@ -11,37 +16,95 @@ while ( have_posts() ) :
 	?>
 
 
-	<article class="">
-		
-	<?php include( __DIR__ . '/template-parts/title_description.php');  ?>  
+	<article class="max-w-screen-xl m-auto block pb-40 relative">
 
-		<?php include( __DIR__ . '/template-parts/youtube_lite.php');  ?>  
+		<?php   
+		// ┌─────────────────────────────────────────────────────────────────────────┐
+		// │                                                                         │
+		// │                                HERO                                     │
+		// │                                                                         │
+		// └─────────────────────────────────────────────────────────────────────────┘
+		?>
+		<?php include( __DIR__ . '/single-parts/hero.php');  ?>  
+	
 
-		<div class="flex py-3"> 
+		<?php   
+		// ┌─────────────────────────────────────────────────────────────────────────┐
+		// │                                                                         │
+		// │                              BREADCRUMBS                                │
+		// │                                                                         │
+		// └─────────────────────────────────────────────────────────────────────────┘
+		?>
+		<div class="w-full h-10 relative mb-20">
+			<?php do_shortcode('[breadcrumb colour="blue-500"]');  ?>
+		</div>
 
-			<div class="md:w-1/5 w-24"></div>
+		<div class="w-full flex mb-40">
+			<?php   
+			// ┌─────────────────────────────────────────────────────────────────────────┐
+			// │                                                                         │
+			// │                              CONTENT                                    │
+			// │                                                                         │
+			// └─────────────────────────────────────────────────────────────────────────┘
+			?>
+			<div class="w-2/3">
+				<?php include( __DIR__ . '/single-parts/title.php');  ?>   
+				<?php include( __DIR__ . '/single-parts/transformed_content.php');  ?>   
+			</div>
 
-			<div class="md:w-3/5">
 
-				<?php include( __DIR__ . '/template-parts/breadcrumbs.php');  ?>   
-				
-				<?php include( __DIR__ . '/template-parts/transformed_content.php');  ?>   
+		</div>
 
-				<?php include( __DIR__ . '/template-parts/youtube_link.php');  ?>  
+		<div class="w-full flex flex-col">
+
+			<?php
+			// ┌─────────────────────────────────────────────────────────────────────────┐
+			// │                                                                         │
+			// │                                ANY VIDEOS                               │
+			// │                                                                         │
+			// └─────────────────────────────────────────────────────────────────────────┘
+			?>
+			<?php include( __DIR__ . '/taxonomy-parts/video_cards.php'); ?>
+
+			<?php
+			// ┌─────────────────────────────────────────────────────────────────────────┐
+			// │                                                                         │
+			// │ 						TUTORIALS, DEMOS AND BLOG                        │
+			// │                                                                         │
+			// └─────────────────────────────────────────────────────────────────────────┘
+			?>
+			<h2 class="text-2xl mb-4">Explore other Series</h2>
+			<div class="w-full flex gap-10">
+
+				<?php include( __DIR__ . '/generic-parts/tutorials_demos_blog.php'); ?>
 
 			</div>
 
-			<div class="md:w-1/5 w-24"></div>
-
 		</div>
+
 
 	</article>
 
 
-	<?php
-	// -------------------------- TEMPLATE END --------------------------------
 
-
+<?php
+// -------------------------- TEMPLATE END --------------------------------
 endwhile;
+?>
+
+<div class="svgs">
+    <?php
+	include( ANDYP_CPT_DEMONSTRATION_PATH . '/src/svgs/slowmo.svg');
+	include( ANDYP_CPT_DEMONSTRATION_PATH . '/src/svgs/viewback.svg');
+	include( ANDYP_CPT_DEMONSTRATION_PATH . '/src/svgs/viewfront.svg');
+	include( ANDYP_CPT_DEMONSTRATION_PATH . '/src/svgs/viewside.svg');
+    include( get_stylesheet_directory() . '/src/assets/svgs/noise.svg');
+    include( get_stylesheet_directory() . '/src/assets/svgs/glyph-all.svg');
+    include( get_stylesheet_directory() . '/src/assets/svgs/wavey-min.php');
+    ?>
+</div>
+
+<?php
 
 get_footer();
+

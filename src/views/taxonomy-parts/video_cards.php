@@ -13,9 +13,26 @@
 
 <h2 class="text-5xl mb-10 mt-20">Videos in this Category</h2>
 
-<ul class="grid-ul flex flex-wrap -mr-20">
+<ul class="grid-ul flex flex-wrap -mr-10">
 
-<?php foreach ($posts as $loop_key => $post) {  
+<?php 
+
+    // if this is a single post, get all siblings.
+    if ($wp_query->is_single){
+        $posts = get_posts([
+            'post_type' => $post->post_type,
+            'numberposts' => -1,
+            'order' => 'ASC',
+            'tax_query' => [[
+                'taxonomy' => $post->terms[0]->taxonomy,
+                'field' => 'term_id', 
+                'terms' => $post->terms[0]->term_id,
+                'include_children' => false
+            ]]
+        ]);
+    }
+
+    foreach ($posts as $loop_key => $post) {  
     $post->meta = get_post_meta($post->ID);
 ?>
 
