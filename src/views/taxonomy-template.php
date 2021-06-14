@@ -64,10 +64,7 @@ foreach ($current_term->acf['meta_fields'] as $meta_field)
         // └─────────────────────────────────────────────────────────────────────────┘
         ?>
         <h2 class="text-2xl mb-4 mt-40">Explore other series</h2>
-        <div class="w-full flex gap-10 ">
-            <?php include( __DIR__ . '/generic-parts/tutorials_demos_blog.php'); ?>
-
-        </div>
+        <?php include( __DIR__ . '/generic-parts/tutorials_demos_blog.php'); ?>
 
     </main>
 

@@ -13,7 +13,7 @@
 
 <h2 class="text-5xl mb-10 mt-20">Videos in this Category</h2>
 
-<ul class="grid-ul flex flex-wrap -mr-10">
+<ul class="grid-ul flex flex-wrap md:-mr-10">
 
 <?php 
 
