@@ -16,7 +16,7 @@
 
 ?>
 
-<div class="flex flex-col">
+<div class="flex flex-col w-full sm:w-1/2 lg:w-full mt-4 lg:mt-0 ml-0 sm:ml-4 lg:ml-0">
 
     <div class="flex-1 flex gap-4 mb-4">
 

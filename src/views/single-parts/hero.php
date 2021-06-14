@@ -1,8 +1,8 @@
 
-<div class="mt-10 flex flex-wrap">
+<div class="mt-4 md:mt-10 flex flex-col md:flex-row flex-wrap">
 
     
-    <div class="w-2/3">
+    <div class="w-full lg:w-2/3">
         <?php   
         // ┌─────────────────────────────────────────────────────────────────────────┐
         // │                                                                         │
@@ -14,7 +14,7 @@
             include( __DIR__ . '/youtube_lite.php');
         ?> 
     </div>
-    <div class="w-1/3 pl-10"> 
+    <div class="w-full lg:w-1/3 lg:pl-4 flex flex-col sm:flex-row lg:flex-col"> 
         <?php   
         // ┌─────────────────────────────────────────────────────────────────────────┐
         // │                                                                         │

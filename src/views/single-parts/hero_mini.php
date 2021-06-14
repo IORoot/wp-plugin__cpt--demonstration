@@ -21,7 +21,7 @@
     
 ?>
 
-<div class="bg-gray-200 w-full h-48 rounded-2xl overflow-hidden relative mb-4">
+<div class="bg-gray-200 w-full sm:w-1/2 lg:w-full h-48 rounded-2xl overflow-hidden relative mb-4 mt-4 lg:mt-0"">
 
 
     <?php   
